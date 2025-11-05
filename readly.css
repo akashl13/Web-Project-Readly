@@ -1,0 +1,368 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+header { 
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    color: #333;
+    padding: 20px 40px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo { 
+    font-size: 28px; 
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-btn { 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    cursor: pointer; 
+    margin-left: 10px; 
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.header-btn:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.container { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
+}
+
+.books-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; 
+    margin-top: 30px; 
+}
+
+.book-card { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 20px; 
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.book-card img { 
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.book-card:hover img {
+    transform: scale(1.05);
+}
+
+.book-title { 
+    font-size: 18px; 
+    font-weight: bold; 
+    margin: 15px 0 8px;
+    color: #333;
+    min-height: 45px;
+}
+
+.book-author { 
+    color: #888; 
+    font-size: 14px; 
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.book-price { 
+    color: #667eea; 
+    font-size: 24px; 
+    font-weight: bold; 
+    margin: 15px 0;
+}
+
+.btn { 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white; 
+    border: none; 
+    padding: 12px 20px; 
+    cursor: pointer; 
+    border-radius: 25px;
+    width: 100%; 
+    margin-top: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.add-cart { 
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.add-cart:hover { 
+    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+}
+
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1000; 
+}
+
+.modal-content { 
+    background: white; 
+    width: 450px; 
+    margin: 100px auto; 
+    padding: 40px; 
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 { 
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 28px;
+}
+
+.modal-content input { 
+    width: 100%; 
+    padding: 15px; 
+    margin: 12px 0; 
+    border: 2px solid #e0e0e0; 
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.close { 
+    float: right; 
+    font-size: 32px; 
+    cursor: pointer;
+    color: #888;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    color: #667eea;
+}
+
+.cart-count { 
+    background: #f5576c;
+    color: white; 
+    border-radius: 50%; 
+    padding: 4px 10px; 
+    font-size: 12px; 
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.cart-page, .book-page { 
+    display: none; 
+}
+
+.books-page {
+    display: none;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.welcome-section h1 {
+    font-size: 48px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.welcome-text {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 50px 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    text-align: left;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.info-card h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.info-card p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.cta-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    font-size: 20px;
+    padding: 18px 50px;
+    margin-top: 40px;
+    width: auto;
+    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+}
+
+.cta-btn:hover {
+    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+}
+
+.cart-item { 
+    background: white; 
+    padding: 25px; 
+    margin: 15px 0; 
+    border-radius: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.total { 
+    background: white; 
+    padding: 30px; 
+    margin: 25px 0; 
+    border-radius: 20px; 
+    text-align: right; 
+    font-size: 24px; 
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    color: #667eea;
+}
+
+.book-detail { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 25px; 
+    display: flex; 
+    gap: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.book-detail img { 
+    width: 350px; 
+    height: 450px; 
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+#cartPage h1, #booksPage h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .books-grid { 
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    .book-detail { 
+        flex-direction: column; 
+    }
+    .book-detail img {
+        width: 100%;
+        height: 400px;
+    }
+    .welcome-section h1 {
+        font-size: 32px;
+    }
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+    .header-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+        margin: 5px;
+    }
+}

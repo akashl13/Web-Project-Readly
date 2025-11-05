@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="readly.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bookstore</div>
+        <div>
+            <span id="userDisplay" style="margin-right: 15px;"></span>
+            <button class="header-btn" onclick="showHome()">Home</button>
+            <button class="header-btn" onclick="showBooks()">Books</button>
+            <button class="header-btn" id="cartBtn" onclick="showCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+            <button class="header-btn" id="loginBtn" onclick="showLogin()">Login</button>
+            <button class="header-btn" id="logoutBtn" style="display:none;" onclick="logout()">Logout</button>
+        </div>
+    </header>
+    <div class="container">
+        <div id="homePage">
+            <div class="welcome-section">
+                <h1>Welcome to Indian Bookstore</h1>
+                <p class="welcome-text">Discover the rich literary heritage of India with our curated collection of classic and contemporary works.</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h2>12+ Books Available</h2>
+                        <p>Browse through our collection of award-winning novels, poetry, and stories from India's finest authors</p>
+                    </div>
+                    <div class="info-card">
+                        <h2>Read Free Online</h2>
+                        <p>Access free online versions of classic literature through our partner libraries</p>
+                    </div>
+                    <div class="info-card">
+                        <h2>Easy Shopping</h2>
+                        <p>Add books to your cart and checkout with ease. Prices starting from just ₹199</p>
+                    </div>
+                </div>  
+                <button class="btn cta-btn" onclick="showBooks()">Explore Books Now →</button>
+            </div>
+        </div>
+        <div id="booksPage" class="books-page">
+            <h1>Our Collection</h1>
+            <div class="books-grid" id="booksGrid"></div>
+        </div>
+        <div id="cartPage" class="cart-page">
+            <h1>Your Cart</h1>
+            <button class="btn" onclick="showBooks()">← Back to Books</button>
+            <div id="cartItems"></div>
+            <div class="total">Total: ₹<span id="totalPrice">0</span></div>
+            <button class="btn" onclick="checkout()" style="max-width: 200px; float: right;">Proceed to Checkout</button>
+        </div>
+        <div id="bookPage" class="book-page">
+            <button class="btn" onclick="showBooks()" style="max-width: 150px; margin-bottom: 20px;">← Back</button>
+            <div id="bookDetail"></div>
+        </div>
+    </div>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Login / Register</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button class="btn" onclick="login()">Login / Register</button>
+        </div>
+    </div>
+    <script src="readly.js"></script>
+</body>
+</html>
